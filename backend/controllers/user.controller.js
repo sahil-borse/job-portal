@@ -1,5 +1,5 @@
 import { User } from "../models/user.model.js";
-import bcrypt from "bcrypt.js";
+import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
 // Register Logic
@@ -111,6 +111,7 @@ export const login = async (req, res) => {
         sameSite: "strict",
       })
       .json({
+        user,
         message: `Welcome back ${user.fullname}`,
       });
   } catch (error) {
@@ -165,19 +166,19 @@ export const updateProfile = async (req, res) => {
     await User.Save();
 
     user = {
-        _id: user._id,
-        fullname: user.fullname,
-        email: user.email,
-        role: user.role,
-        mobileNumber: user.mobileNumber,
-        profile: user.profile,
-      };
+      _id: user._id,
+      fullname: user.fullname,
+      email: user.email,
+      role: user.role,
+      mobileNumber: user.mobileNumber,
+      profile: user.profile,
+    };
 
-      return res.status(200).json({
-        user,
-        success:true,
-        message:'profile updated successfully.'
-      })
+    return res.status(200).json({
+      user,
+      success: true,
+      message: "profile updated successfully.",
+    });
   } catch (error) {
     console.log(error);
   }

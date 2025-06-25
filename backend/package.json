@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "Dynamic and interactive job portal",
   "main": "index.js",
-  "type":"module",
+  "type": "module",
   "scripts": {
-    "dev":"nodemon index.js",
+    "dev": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/sahil-borse/job-portal#readme",
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "cookie-parser": "^1.4.6",
     "cors": "^2.8.5",
